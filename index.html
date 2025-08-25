@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benali Imóveis - Especialistas em Imóveis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #E7A217;
+            --hover-orange: #D18F0E;
+            --text-dark: #041E37;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --white: #FFFFFF;
+            --light-gray: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --shadow-hover: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none !important;
+            color: inherit;
+        }
+
+        a:hover {
+            text-decoration: none !important;
+        }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .loading-screen.fade-out {
+            opacity: 0;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .logo-container {
+            text-align: center;
+            animation: logoAnimation 3s ease-out;
+        }
+
+        .logo-benali {
+            width: clamp(200px, 50vw, 300px);
+            height: auto;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .logo-benali:hover {
+            transform: scale(1.02);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--text-dark);
+            z-index: 1001;
+            transition: box-shadow 0.3s ease;
+            padding: 0.75rem 0;
+        }
+
+        .header.scrolled {
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .nav-logo img {
+            height: clamp(40px, 6vw, 60px);
+            width: auto;
+            transition: height 0.3s ease;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            font-size: clamp(14px, 2vw, 16px);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-orange);
+        }
+
+        .primary-orange-text {
+            color: var(--primary-orange);
+            text-decoration: underline;
+            text-decoration-color: var(--primary-orange);
+            text-underline-offset: 3px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+            z-index: 1002;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0;
+            padding-top: 80px;
+            touch-action: pan-y;
+        }
+
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(4, 30, 55, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 1rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            background: var(--primary-orange);
+            color: var(--text-dark);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--hover-orange);
+            transform: translateY(-3px);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--white);
+            opacity: 0.5;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            opacity: 1;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about, .empreendimentos, .services, .contact {
+            padding: 6rem 0;
+        }
+
+        .about {
+            background: var(--light-gray);
+        }
+
+        .empreendimentos {
+            background: var(--white);
+        }
+
+        .services {
+            background: var(--light-gray);
+        }
+
+        .contact {
+            background: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-orange);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--primary-orange);
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-weight: 500;
+        }
+
+        .about-image {
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .empreendimento-item {
+            margin-bottom: 5rem;
+            padding: 2rem 0;
+        }
+
+        .empreendimento-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .empreendimento-titulo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .empreendimento-titulo h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--text-dark);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .empreendimento-titulo h3::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--primary-orange);
+            border-radius: 2px;
+        }
+
+        .empreendimento-carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            touch-action: pan-y pinch-zoom;
+        }
+
+        .empreendimento-slides {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .empreendimento-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .empreendimento-slide.active {
+            opacity: 1;
+        }
+
+        .empreendimento-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-nav-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-nav-btn.next {
+            right: 15px;
+        }
+
+        .empreendimento-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .empreendimento-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--white);
+            opacity: 0.6;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .empreendimento-dot.active {
+            opacity: 1;
+            background: var(--primary-orange);
+        }
+
+        .empreendimento-descricao {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .empreendimento-descricao p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .empreendimento-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        .info-item i {
+            margin-right: 0.5rem;
+            color: var(--primary-orange);
+            font-size: 1.2em;
+        }
+
+        .contact-btn {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+        }
+
+        .contact-btn:hover {
+            background: var(--hover-orange);
+            transform: translateY(-2px);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: var(--light-gray);
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-orange);
+            color: var(--white);
+            border-color: var(--primary-orange);
+        }
+
+        .filter-btn:hover {
+            background: var(--hover-orange);
+            color: var(--white);
+            border-color: var(--hover-orange);
+        }
+
+        .empreendimento-item.hidden {
+            display: none;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding matar: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.3rem, 2.5vw, 1.5rem);
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            line-height: 1.7;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .contact-details {
+            color: var(--text-gray);
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        .contact-details strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--white);
+            color: var(--text-dark);
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        .submit-btn {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+        }
+
+        .submit-btn:hover {
+            background: var(--hover-orange);
+        }
+
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 2rem 0 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-logo img {
+            height: clamp(60px, 10vw, 100px);
+            width: auto;
+            margin-bottom: 1rem;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+
+        .footer-info {
+            margin: 2rem 0;
+            color: var(--text-gray);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: background 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--hover-orange);
+        }
+
+        .footer-text {
+            color: var(--text-gray);
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .developer-link {
+            color: var(--primary-orange);
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .developer-link:hover {
+            color: var(--hover-orange);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--hover-orange);
+        }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 75px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                padding-top: 70px;
+            }
+
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .empreendimento-slides {
+                height: 400px;
+            }
+
+            .sections {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.5rem 0;
+            }
+
+            .hero {
+                padding-top: 60px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--text-dark);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px var(--shadow);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu a {
+                padding: 0.75rem;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                color: var(--white);
+            }
+
+            .nav-menu a:last-child {
+                border-bottom: none;
+            }
+
+            .about, .empreendimentos, .services, .contact {
+                padding: 4rem 0;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .empreendimento-slides {
+                height: 350px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .empreendimento-info {
+                gap: 1rem;
+            }
+
+            .carousel-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding-top: 50px;
+                height: 90vh;
+            }
+
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .about, .empreendimentos, .services, .contact {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                margin-bottom: 3rem;
+            }
+
+            .empreendimento-slides {
+                height: 300px;
+            }
+
+            .empreendimento-item {
+                margin-bottom: 3rem;
+            }
+
+            .carousel-nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+
+            .carousel-nav-btn.prev {
+                left: 10px;
+            }
+
+            .carousel-nav-btn.next {
+                right: 10px;
+            }
+
+            .whatsapp-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 15px;
+            }
+
+            .back-to-top {
+                position: fixed;
+                bottom: 80px;
+                right: 15px;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .empreendimento-slides {
+                height: 250px;
+            }
+
+            .empreendimento-info {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="loading-screen" id="loadingScreen">
+    <div class="logo-container">
+        <img src="img/logofooter.png" alt="Benali Imóveis Logo" class="logo-benali" loading="eager">
+    </div>
+</div>
+
+<header class="header" id="header">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">
+            <img src="img/logofooter.png" alt="Benali Imóveis Logo" loading="eager">
+        </a>
+        <nav>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre nós</a></li>
+                <li><a href="#empreendimentos">Empreendimentos</a></li>
+                <li><a href="#contact">Anunciar imóvel</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</header>
+
+<section class="hero fade-in" id="home">
+    <div class="hero-carousel" id="heroCarousel">
+        <div class="hero-slide active" style="background-image: url('empreendimentos_img/rivis.png')"></div>
+        <div class="hero-slide" style="background-image: url('empreendimentos_img/rivis2.png')"></div>
+        <div class="hero-slide" style="background-image: url('empreendimentos_img/rivis3.png')"></div>
+        <div class="hero-slide" style="background-image: url('empreendimentos_img/helboralaegria.png')"></div>
+        <div class="hero-slide" style="background-image: url('empreendimentos_img/helboralegria2.png')"></div>
+        <div class="hero-slide" style="background-image: url('empreendimentos_img/alegria.png')"></div>
+        <div class="hero-slide" style="background-image: url('empreendimentos_img/13persp_alegria_fitness.png')"></div>
+        <div class="hero-slide" style="background-image: url('empreendimentos_img/17persp_alegria_coworking.webp')"></div>
+    </div>
+    <div class="hero-content">
+        <h1>Especialista em Imóveis</h1>
+        <p>Compra, venda e locação de imóveis residenciais e comerciais, lançamentos e revenda, sempre com foco na tranquilidade e valorização e alavancagem do seu patrimônio</p>
+        <a href="#contact" class="cta-button">Entre em Contato</a>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+<section class="about fade-in" id="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>Bem-vindo à BENALI Imóveis</h2>
+            <p>Especialistas no mercado imobiliário com vasta experiência e compromisso com a qualidade</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-content">
+                <h3>Nossa História</h3>
+                <p>A BENALI Imóveis é composta por uma equipe de profissionais com vasta experiência no mercado imobiliário. Nossa liderança conta com a expertise de um ex-gerente de vendas da Helbor, que traz uma visão estratégica e um compromisso inabalável com a qualidade e inovação para cada cliente.</p>
+                <p>Oferecemos serviços imobiliários transparentes, segurança e uma experiência diferenciada para atender às necessidades de nossos clientes, sejam compradores ou vendedores.</p>
+            </div>
+            <div class="about-image">
+                <img src="img/perfil.png" alt="Equipe Benali Imóveis" loading="lazy">
+            </div>
+        </div>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">CRECI</div>
+                <div class="stat-label">47264-J</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Transparência</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="empreendimentos fade-in" id="empreendimentos">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nossos Empreendimentos</h2>
+            <p>Conheça os projetos exclusivos que desenvolvemos em Mogi das Cruzes e região</p>
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="new">Novos</button>
+            <button class="filter-btn" data-filter="used">Usados</button>
+        </div>
+
+        <div class="empreendimento-item new" data-category="new">
+            <div class="empreendimento-titulo">
+                <h3>Residencial SENSE</h3>
+            </div>
+            <div class="empreendimento-carousel" id="carousel-1">
+                <div class="empreendimento-slides">
+                    <div class="empreendimento-slide active">
+                        <img src="empreendimentos_img/fachada_sense.png" alt="Sense - Fachada" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/portaria_sense.png" alt="Sense - Portaria" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/Sensi.png" alt="Sense - Interior" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/piscina_sense.png" alt="Sense - Piscina" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/implantaçao sense.png" alt="Sense - Implantação" loading="lazy">
+                    </div>
+                </div>
+                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(0, -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(0, 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="empreendimento-dots" id="dots-0"></div>
+            </div>
+            <div class="empreendimento-descricao">
+                <div class="empreendimento-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Av. Eng. Miguel Gemma, 2867 - Mogi das Cruzes
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-building"></i>
+                        1 Torre
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-home"></i>
+                        141 Unidades
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-crop"></i>
+                        Área do terreno: 5.000 m²
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-elevator"></i>
+                        3 Elevadores
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar"></i>
+                        Entrega prevista: 2025
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactEmpreendimento('Residencial Sense')">Saiba Mais</button>
+            </div>
+        </div>
+
+        <div class="empreendimento-item new" data-category="new">
+            <div class="empreendimento-titulo">
+                <h3>Helbor Alegria Patteo Mogilar</h3>
+            </div>
+            <div class="empreendimento-carousel" id="carousel-2">
+                <div class="empreendimento-slides">
+                    <div class="empreendimento-slide active">
+                        <img src="empreendimentos_img/helboralaegria.png" alt="Helbor Alegria - Fachada" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/helboralegria2.png" alt="Helbor Alegria - Área comum" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/alegria.png" alt="Helbor Alegria - Interior" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/13persp_alegria_fitness.png" alt="Helbor Alegria - Área fitness" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/17persp_alegria_coworking.webp" alt="Helbor Alegria - Coworking" loading="lazy">
+                    </div>
+                </div>
+                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(1, -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(1, 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="empreendimento-dots" id="dots-1"></div>
+            </div>
+            <div class="empreendimento-descricao">
+                <div class="empreendimento-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Vila Mogilar - Mogi das Cruzes
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-building"></i>
+                        3 Torres
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-home"></i>
+                        493 Unidades
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-crop"></i>
+                        Área privativa: 66 à 119 m²
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-elevator"></i>
+                        1 à 2 vagas
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-bed"></i>
+                        1 e 3 suítes
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-door-closed"></i>
+                        2 e 3 dormitórios
+                    </div>
+                </div>
+                <a href="https://imovel.corretoron.com.br/helbor-alegria-patteo-mogilar/48739" target="_blank">
+                    <button class="contact-btn">Saiba Mais</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="empreendimento-item new" data-category="new">
+            <div class="empreendimento-titulo">
+                <h3>Santuário de Luxo na Riviera de São Lourenço</h3>
+            </div>
+            <div class="empreendimento-carousel" id="carousel-4">
+                <div class="empreendimento-slides">
+                    <div class="empreendimento-slide active">
+                        <img src="empreendimentos_img/rivis.png" alt="Riviera - Fachada Imponente" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/rivis2.png" alt="Riviera - Área de lazer com piscina" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/rivis3.png" alt="Riviera - Ambientes integrados" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/rivis4.png" alt="Riviera - Vista interna" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/rivis5.png" alt="Riviera - Detalhes de luxo" loading="lazy">
+                    </div>
+                </div>
+                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(3, -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(3, 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="empreendimento-dots" id="dots-3"></div>
+            </div>
+            <div class="empreendimento-descricao">
+                <div class="empreendimento-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Riviera de São Lourenço, Bertioga - SP
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-swimmer"></i>
+                        Lazer Completo
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-home"></i>
+                        Resort Privativo
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactEmpreendimento('Santuário de Luxo na Riviera de São Lourenço')">Saiba Mais</button>
+            </div>
+        </div>
+
+        <div class="empreendimento-item new" data-category="new">
+            <div class="empreendimento-titulo">
+                <h3>Sobrado Mosaico Essence</h3>
+            </div>
+            <div class="empreendimento-carousel" id="carousel-5">
+                <div class="empreendimento-slides">
+                    <div class="empreendimento-slide active">
+                        <img src="empreendimentos_img/essence.png" alt="Essence - Fachada" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/essense2.png" alt="Essence - Interior" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/essense3.png" alt="Essence - Área de lazer" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/essense4.png" alt="Essence - Ambiente interno" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/essense5.png" alt="Essence - Vista externa" loading="lazy">
+                    </div>
+                </div>
+                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(4, -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(4, 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="empreendimento-dots" id="dots-4"></div>
+            </div>
+            <div class="empreendimento-descricao">
+                <div class="empreendimento-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Av. Pres. Castelo Branco, 3013 - Cezar de Souza, Mogi das Cruzes - SP, 08820-460
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-door-closed"></i>
+                        5 suítes
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactEmpreendimento('Sobrado Mosaico Essence')">Saiba Mais</button>
+            </div>
+        </div>
+
+        <div class="empreendimento-item used" data-category="used">
+            <div class="empreendimento-titulo">
+                <h3>Sobrados em Villagio</h3>
+            </div>
+            <div class="empreendimento-carousel" id="carousel-6">
+                <div class="empreendimento-slides">
+                    <div class="empreendimento-slide active">
+                        <img src="empreendimentos_img/ccasa.png" alt="Villagio - Fachada" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/ccasa2.png" alt="Villagio - Interior" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/ccasa3.png" alt="Villagio - Área de lazer" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/ccasa4.png" alt="Villagio - Vista externa" loading="lazy">
+                    </div>
+                </div>
+                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(5, -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(5, 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="empreendimento-dots" id="dots-5"></div>
+            </div>
+            <div class="empreendimento-descricao">
+                <div class="empreendimento-info">
+                    <div class="info-item">
+                        <i class="fas fa-door-closed"></i>
+                        2 e 3 dormitórios
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactEmpreendimento('Sobrados em Villagio')">Saiba Mais</button>
+            </div>
+        </div>
+
+        <div class="empreendimento-item used" data-category="used">
+            <div class="empreendimento-titulo">
+                <h3>Imóvel Usado - Apartamento Central</h3>
+            </div>
+            <div class="empreendimento-carousel" id="carousel-7">
+                <div class="empreendimento-slides">
+                    <div class="empreendimento-slide active">
+                        <img src="empreendimentos_img/placeholder.jpg" alt="Apartamento Central - Fachada" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/placeholder.jpg" alt="Apartamento Central - Interior" loading="lazy">
+                    </div>
+                </div>
+                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(6, -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(6, 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="empreendimento-dots" id="dots-6"></div>
+            </div>
+            <div class="empreendimento-descricao">
+                <div class="empreendimento-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Mogi das Cruzes - SP
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-door-closed"></i>
+                        2 dormitórios
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactEmpreendimento('Imóvel Usado - Apartamento Central')">Saiba Mais</button>
+            </div>
+        </div>
+
+        <div class="empreendimento-item used" data-category="used">
+            <div class="empreendimento-titulo">
+                <h3>Imóvel Usado - Casa Jardim</h3>
+            </div>
+            <div class="empreendimento-carousel" id="carousel-8">
+                <div class="empreendimento-slides">
+                    <div class="empreendimento-slide active">
+                        <img src="empreendimentos_img/placeholder.jpg" alt="Casa Jardim - Fachada" loading="lazy">
+                    </div>
+                    <div class="empreendimento-slide">
+                        <img src="empreendimentos_img/placeholder.jpg" alt="Casa Jardim - Interior" loading="lazy">
+                    </div>
+                </div>
+                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(7, -1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(7, 1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="empreendimento-dots" id="dots-7"></div>
+            </div>
+            <div class="empreendimento-descricao">
+                <div class="empreendimento-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Mogi das Cruzes - SP
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-door-closed"></i>
+                        3 dormitórios
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="contactEmpreendimento('Imóvel Usado - Casa Jardim')">Saiba Mais</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services fade-in" id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Serviços Oferecidos</h2>
+            <p>Compra, venda e locação de imóveis residenciais e comerciais, além da gestão de propriedades com foco na tranquilidade e valorização do seu patrimônio</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Venda de Imóveis</h3>
+                <p>Processo completo de venda com avaliação justa, marketing eficiente e acompanhamento jurídico especializado para garantir a melhor negociação.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Locação</h3>
+                <p>Administração completa de locações com contratos seguros, vistoria detalhada e suporte contínuo para proprietários e inquilinos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Consultoria Imobiliária</h3>
+                <p>Orientação especializada para investimentos imobiliários e análise de mercado personalizada para maximizar seus resultados.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Gestão de Propriedades</h3>
+                <p>Administração completa do seu patrimônio imobiliário com foco na tranquilidade e valorização dos seus investimentos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact fade-in" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Entre em Contato</h2>
+            <p>Estamos localizados no coração de Mogi das Cruzes e atendemos toda a região</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Informações de Contato</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <strong>Telefone:</strong> (11) 99415-0913
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <strong>E-mail:</strong> simoesfelipe.corretor@gmail.com
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <strong>Endereço:</strong> R. Carmela Dutra, 295 - Jardim Esplanada, Mogi das Cruzes - SP, 08780-350
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="contact-details">
+                        <strong>CRECI:</strong> 47264-J
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="contact-details">
+                        <strong>Atendemos:</strong> Mogi das Cruzes<br> São Paulo<br> Litoral Norte
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" placeholder="Como podemos ajudar?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Descreva sua necessidade..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="img/logofooter.png" alt="Benali Imóveis Logo" loading="lazy">
+        </div>
+        <div class="footer-info">
+            <p>Especialistas em imóveis com transparência e qualidade</p>
+            <p>CRECI: 47264-J</p>
+        </div>
+        <div class="social-links">
+            <a href="mailto:simoesfelipe.corretor@gmail.com" class="social-link">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a href="https://www.instagram.com/benaliimoveis/" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5511994150913" class="social-link" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <div class="footer-text">
+            &copy; 2025 Benali Imóveis. Todos os direitos reservados - Desenvolvido por <span class="developer-link" onclick="contactDeveloper()">Lucas Cabral</span>
+        </div>
+    </div>
+</footer>
+
+<a href="#home" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<a href="https://wa.me/5511994150913" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // Empreendimentos carousel tracking
+    const empreendimentoIndexes = [0, 0, 0, 0, 0, 0, 0, 0];
+
+    // Loading Screen
+    window.addEventListener('load', () => {
+        const loadingScreen = document.getElementById('loadingScreen');
+        setTimeout(() => {
+            loadingScreen.classList.add('fade-out');
+            setTimeout(() => loadingScreen.style.display = 'none', 1000);
+        }, 1500);
+    });
+
+    // Hero Carousel
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const carouselDots = document.getElementById('carouselDots');
+    let currentHeroSlide = 0;
+
+    // Create dots
+    heroSlides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => changeSlide(index));
+        carouselDots.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function changeSlide(index) {
+        heroSlides[currentHeroSlide].classList.remove('active');
+        dots[currentHeroSlide].classList.remove('active');
+        currentHeroSlide = index;
+        heroSlides[currentHeroSlide].classList.add('active');
+        dots[currentHeroSlide].classList.add('active');
+    }
+
+    function nextHeroSlide() {
+        let next = (currentHeroSlide + 1) % heroSlides.length;
+        changeSlide(next);
+    }
+
+    setInterval(nextHeroSlide, 5000);
+
+    // Initialize empreendimento dots
+    function initializeEmpreendimentoDots() {
+        for (let i = 0; i < 8; i++) {
+            const dotsContainer = document.getElementById(`dots-${i}`);
+            const slides = document.querySelectorAll(`#carousel-${i + 1} .empreendimento-slide`);
+
+            if (dotsContainer && slides.length > 0) {
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('empreendimento-dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => changeEmpreendimentoSlide(i, null, index));
+                    dotsContainer.appendChild(dot);
+                });
+            }
+        }
+    }
+
+    // Empreendimentos Carousel
+    function changeEmpreendimentoSlide(carouselIndex, direction = null, targetIndex = null) {
+        const carousel = document.getElementById(`carousel-${carouselIndex + 1}`);
+        if (!carousel) return;
+
+        const slides = carousel.querySelectorAll('.empreendimento-slide');
+        const dots = document.querySelectorAll(`#dots-${carouselIndex} .empreendimento-dot`);
+
+        if (slides.length === 0) return;
+
+        // Remove active class from current slide and dot
+        slides[empreendimentoIndexes[carouselIndex]].classList.remove('active');
+        if (dots.length > 0) {
+            dots[empreendimentoIndexes[carouselIndex]].classList.remove('active');
+        }
+
+        // Update index
+        if (targetIndex !== null) {
+            empreendimentoIndexes[carouselIndex] = targetIndex;
+        } else {
+            empreendimentoIndexes[carouselIndex] += direction;
+            if (empreendimentoIndexes[carouselIndex] < 0) {
+                empreendimentoIndexes[carouselIndex] = slides.length - 1;
+            } else if (empreendimentoIndexes[carouselIndex] >= slides.length) {
+                empreendimentoIndexes[carouselIndex] = 0;
+            }
+        }
+
+        // Add active class to new slide and dot
+        slides[empreendimentoIndexes[carouselIndex]].classList.add('active');
+        if (dots.length > 0) {
+            dots[empreendimentoIndexes[carouselIndex]].classList.add('active');
+        }
+    }
+
+    // Auto-advance empreendimento carousels
+    setInterval(() => {
+        for (let i = 0; i < empreendimentoIndexes.length; i++) {
+            changeEmpreendimentoSlide(i, 1);
+        }
+    }, 6000);
+
+    // Contact Empreendimento Function
+    function contactEmpreendimento(nome) {
+        const message = `Olá! Tenho interesse no empreendimento "${nome}". Gostaria de mais informações sobre preços, plantas e disponibilidade.`;
+        const whatsappUrl = `https://wa.me/5511994150913?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // Download Sense Book Function
+    function downloadSenseBook() {
+        // Cria um link temporário para download
+        const link = document.createElement('a');
+        link.href = 'empreendimentos_img/Book digital_Sense.pdf'; // Caminho para o arquivo PDF
+        link.download = 'Book digital_Sense.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Contact Developer Function
+    function contactDeveloper() {
+        const message = `Olá! Gostaria de mais serviços de desenvolvimento web.`;
+        const whatsappUrl = `https://wa.me/5511960573657?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // Mobile Menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // Header Scroll
+    const header = document.getElementById('header');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+            backToTop.classList.add('show');
+        } else {
+            header.classList.remove('scrolled');
+            backToTop.classList.remove('show');
+        }
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                const headerHeight = document.getElementById('header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Form Submission to WhatsApp
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        const message = `Olá! Gostaria de entrar em contato:\n\nNome: ${data.name}\nEmail: ${data.email}\nTelefone: ${data.phone}\nAssunto: ${data.subject}\nMensagem: ${data.message}`;
+        const whatsappUrl = `https://wa.me/5511994150913?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+        e.target.reset();
+    });
+
+    // Fade-in Observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Filter buttons functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            // Get filter value
+            const filter = button.getAttribute('data-filter');
+
+            // Filter empreendimentos
+            document.querySelectorAll('.empreendimento-item').forEach(item => {
+                if (filter === 'all') {
+                    item.classList.remove('hidden');
+                } else {
+                    if (item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    });
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeEmpreendimentoDots();
+
+        // Add touch events for mobile carousel swiping
+        document.querySelectorAll('.empreendimento-carousel').forEach(carousel => {
+            let startX = 0;
+            let endX = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe(carousel, startX, endX);
+            }, { passive: true });
+        });
+
+    });
+
+    // Handle swipe for mobile carousels
+    function handleSwipe(carousel, startX, endX) {
+        const diffX = startX - endX;
+
+        // Minimum swipe distance
+        if (Math.abs(diffX) > 50) {
+            // Get carousel index from id
+            const carouselId = carousel.id;
+            const index = parseInt(carouselId.split('-')[1]) - 1;
+
+            if (diffX > 0) {
+                // Swipe left - next slide
+                changeEmpreendimentoSlide(index, 1);
+            } else {
+                // Swipe right - previous slide
+                changeEmpreendimentoSlide(index, -1);
+            }
+        }
+    }
+</script>
+</body>
+</html>
