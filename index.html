@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benali Imóveis - Especialistas em Imóveis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -69,9 +72,20 @@
         }
 
         @keyframes logoAnimation {
-            0% { opacity: 0; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.1); }
-            100% { opacity: 1; transform: scale(1); }
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .logo-benali {
@@ -93,7 +107,8 @@
             background: transparent;
             z-index: 1001;
             padding: 0.75rem 0;
-            transition: background-color 0.4s ease, box-shadow 0.4s ease; /* Transição fluida */
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+            /* Transição fluida */
         }
 
         .header.scrolled {
@@ -303,6 +318,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -322,7 +338,10 @@
         }
 
         /* Sections */
-        .about, .empreendimentos, .services, .contact {
+        .about,
+        .empreendimentos,
+        .services,
+        .contact {
             padding: 6rem 0;
         }
 
@@ -332,7 +351,8 @@
 
         .empreendimentos {
             background: var(--white);
-            display: block !important; /* Força a exibição da seção */
+            display: block !important;
+            /* Força a exibição da seção */
             visibility: visible !important;
         }
 
@@ -601,21 +621,21 @@
 
         .empreendimento-descricao {
             text-align: center;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .empreendimento-descricao p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             color: var(--text-gray);
             line-height: 1.8;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .empreendimento-info {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1rem;
             margin-top: 1.5rem;
             flex-wrap: wrap;
         }
@@ -624,8 +644,8 @@
             display: flex;
             align-items: center;
             color: var(--text-dark);
-            font-weight: 600;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             padding: 0.5rem 1rem;
             background: rgba(231, 162, 23, 0.1);
             border-radius: 20px;
@@ -640,7 +660,14 @@
         .info-item i {
             margin-right: 0.5rem;
             color: var(--primary-orange);
-            font-size: 1.2em;
+            font-size: 1.1em;
+        }
+
+        .info-item.price {
+            font-weight: 700;
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            color: var(--white);
+            background: var(--primary-orange);
         }
 
         .contact-btn {
@@ -652,7 +679,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             font-size: clamp(1rem, 2vw, 1.1rem);
         }
 
@@ -868,14 +895,14 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(231, 162, 23, 0.3);
         }
-        
+
         .map-container {
             margin-top: 3rem;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px var(--shadow);
         }
-        
+
         .map-container iframe {
             width: 100%;
             height: 450px;
@@ -1016,7 +1043,8 @@
                 padding-top: 70px;
             }
 
-            .about-grid, .contact-grid {
+            .about-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -1029,7 +1057,10 @@
                 height: 400px;
             }
 
-            .about, .empreendimentos, .services, .contact {
+            .about,
+            .empreendimentos,
+            .services,
+            .contact {
                 padding: 4rem 0;
             }
 
@@ -1046,7 +1077,7 @@
             .hero {
                 padding-top: 60px;
             }
-            
+
             .map-container iframe {
                 height: 300px;
             }
@@ -1086,29 +1117,50 @@
                 opacity: 0;
                 animation: slideInMenu 0.5s ease forwards;
             }
-            
+
             /* Styles for mobile menu logo */
             .mobile-menu-logo-container {
-                display: block; /* Show only when mobile menu is active */
-                order: -1; /* Place it at the top of the flex column */
-                margin-bottom: 3rem; /* Spacing below the logo */
-                animation: none !important; /* Disable slideInMenu for the logo */
+                display: block;
+                /* Show only when mobile menu is active */
+                order: -1;
+                /* Place it at the top of the flex column */
+                margin-bottom: 3rem;
+                /* Spacing below the logo */
+                animation: none !important;
+                /* Disable slideInMenu for the logo */
                 transform: translateY(0) !important;
                 opacity: 1 !important;
             }
-            
+
             .mobile-menu-logo {
-                height: clamp(50px, 15vw, 80px); /* Adjust size for mobile */
+                height: clamp(50px, 15vw, 80px);
+                /* Adjust size for mobile */
                 width: auto;
-                margin: 0 auto; /* Center the logo horizontally */
-                display: block; /* Make sure it takes up its own line */
+                margin: 0 auto;
+                /* Center the logo horizontally */
+                display: block;
+                /* Make sure it takes up its own line */
             }
 
-            .nav-menu li:nth-child(2) { animation-delay: 0.1s; }
-            .nav-menu li:nth-child(3) { animation-delay: 0.2s; }
-            .nav-menu li:nth-child(4) { animation-delay: 0.3s; }
-            .nav-menu li:nth-child(5) { animation-delay: 0.4s; }
-            .nav-menu li:nth-child(6) { animation-delay: 0.5s; }
+            .nav-menu li:nth-child(2) {
+                animation-delay: 0.1s;
+            }
+
+            .nav-menu li:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+
+            .nav-menu li:nth-child(4) {
+                animation-delay: 0.3s;
+            }
+
+            .nav-menu li:nth-child(5) {
+                animation-delay: 0.4s;
+            }
+
+            .nav-menu li:nth-child(6) {
+                animation-delay: 0.5s;
+            }
 
             @keyframes slideInMenu {
                 to {
@@ -1134,7 +1186,10 @@
                 transform: scale(1.05);
             }
 
-            .about, .empreendimentos, .services, .contact {
+            .about,
+            .empreendimentos,
+            .services,
+            .contact {
                 padding: 4rem 0;
             }
 
@@ -1194,7 +1249,7 @@
             background: var(--primary-orange);
             border-radius: 2px;
         }
-        
+
         @media (max-width: 480px) {
             .hero {
                 padding-top: 50px;
@@ -1205,7 +1260,10 @@
                 padding: 0 0.75rem;
             }
 
-            .about, .empreendimentos, .services, .contact {
+            .about,
+            .empreendimentos,
+            .services,
+            .contact {
                 padding: 3rem 0;
             }
 
@@ -1286,834 +1344,933 @@
         }
     </style>
 </head>
+
 <body>
-<div class="loading-screen" id="loadingScreen">
-    <div class="logo-container">
-        <img src="img/logofooter.png" alt="Benali Imóveis Logo" class="logo-benali">
+    <div class="loading-screen" id="loadingScreen">
+        <div class="logo-container">
+            <img src="img/logofooter.png" alt="Benali Imóveis Logo" class="logo-benali">
+        </div>
     </div>
-</div>
 
-<header class="header" id="header">
-    <div class="nav-container">
-        <a href="#home" class="nav-logo">
-            <img src="img/logofooter.png" alt="Benali Imóveis Logo">
-        </a>
-        <nav>
-            <ul class="nav-menu" id="navMenu">
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <img src="img/logofooter.png" alt="Benali Imóveis Logo">
+            </a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Sobre nós</a></li>
+                    <li><a href="#empreendimentos">Empreendimentos</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero fade-in" id="home">
+        <div class="hero-carousel" id="heroCarousel">
+            <div class="hero-slide active" style="background-image: url('empreendimentos_img/rivis.png')"></div>
+            <div class="hero-slide" style="background-image: url('empreendimentos_img/rivis2.png')"></div>
+            <div class="hero-slide" style="background-image: url('empreendimentos_img/alegria.png')"></div>
+            <div class="hero-slide" style="background-image: url('empreendimentos_img/13persp_alegria_fitness.png')">
+            </div>
+            <div class="hero-slide" style="background-image: url('empreendimentos_img/essense5.png')"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="slogan">Confiança que abre portas, transparência que entrega chaves.</h1>
+            <p class="hero-subtitle">Especialista em Imóveis</p>
+            <p class="hero-description">Compra, venda e locação de imóveis residenciais e comerciais, lançamentos e
+                revenda, sempre com foco na tranquilidade e valorização do seu patrimônio.</p>
+            <a href="#contact" class="cta-button">Entre em Contato</a>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <section class="about fade-in" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bem-vindo à BENALI Imóveis</h2>
+                <p>Especialistas no mercado imobiliário com vasta experiência e compromisso com a qualidade</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Nossa História</h3>
+                    <p>A BENALI Imóveis é composta por uma equipe de profissionais com vasta experiência no mercado
+                        imobiliário. Nossa liderança conta com a expertise de um ex-gerente de vendas da Helbor, que
+                        traz uma visão estratégica e um compromisso inabalável com a qualidade e inovação para cada
+                        cliente.</p>
+                    <p>Oferecemos serviços imobiliários transparentes, segurança e uma experiência diferenciada para
+                        atender às necessidades de nossos clientes, sejam compradores ou vendedores.</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/perfil.png" alt="Equipe Benali Imóveis">
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">CRECI</div>
+                    <div class="stat-label">47264-J</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Transparência</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="empreendimentos fade-in" id="empreendimentos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Empreendimentos</h2>
+                <p>Conheça os projetos exclusivos que desenvolvemos em Mogi das Cruzes e região</p>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="new">Novos</button>
+                <button class="filter-btn" data-filter="used">Usados</button>
+            </div>
+
+            <div class="empreendimento-item new" data-category="new">
+                <div class="empreendimento-titulo">
+                    <h3>Residencial SENSE</h3>
+                </div>
+                <div class="empreendimento-carousel" id="carousel-1">
+                    <div class="empreendimento-slides">
+                        <div class="empreendimento-slide active">
+                            <img src="empreendimentos_img/fachada_sense.png" alt="Sense - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/portaria_sense.png" alt="Sense - Portaria">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/Sensi.png" alt="Sense - Interior">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/piscina_sense.png" alt="Sense - Piscina">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/implantaçao sense.png" alt="Sense - Implantação">
+                        </div>
+                    </div>
+                    <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(0, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(0, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="empreendimento-dots" id="dots-0"></div>
+                </div>
+                <div class="empreendimento-descricao">
+                    <div class="empreendimento-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Av. Eng. Miguel Gemma, 2867 - Mogi das Cruzes
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-building"></i>
+                            1 Torre
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-home"></i>
+                            141 Unidades
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-crop"></i>
+                            Área: 5.000 m²
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-elevator"></i>
+                            3 Elevadores
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            Entrega: 2025
+                        </div>
+                    </div>
+                    <button class="contact-btn" onclick="contactEmpreendimento('Residencial Sense')">Saiba Mais</button>
+                </div>
+            </div>
+
+            <div class="empreendimento-item new" data-category="new">
+                <div class="empreendimento-titulo">
+                    <h3>Helbor Alegria Patteo Mogilar</h3>
+                </div>
+                <div class="empreendimento-carousel" id="carousel-2">
+                    <div class="empreendimento-slides">
+                        <div class="empreendimento-slide active">
+                            <img src="empreendimentos_img/alegria.png" alt="Helbor Alegria - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/helboralaegria.png" alt="Helbor Alegria - Área comum">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/helboralegria2.png" alt="Helbor Alegria - Interior">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/17persp_alegria_coworking.webp"
+                                alt="Helbor Alegria - Fitness">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/13persp_alegria_fitness.png" alt="Helbor Alegria - Coworking">
+                        </div>
+                    </div>
+                    <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(1, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(1, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="empreendimento-dots" id="dots-1"></div>
+                </div>
+                <div class="empreendimento-descricao">
+                    <div class="empreendimento-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Vila Mogilar - Mogi das Cruzes
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-building"></i>
+                            3 Torres
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-home"></i>
+                            493 Unidades
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-crop"></i>
+                            66 à 119 m²
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-car"></i>
+                            1 à 2 vagas
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-bed"></i>
+                            1 e 3 suítes
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-door-closed"></i>
+                            2 e 3 dormitórios
+                        </div>
+                    </div>
+                    <button class="contact-btn" onclick="contactEmpreendimento('Helbor Alegria Patteo Mogilar')">Saiba
+                        Mais</button>
+                </div>
+            </div>
+
+            <div class="empreendimento-item new" data-category="new">
+                <div class="empreendimento-titulo">
+                    <h3>Santuário de Luxo na Riviera de São Lourenço</h3>
+                </div>
+                <div class="empreendimento-carousel" id="carousel-3">
+                    <div class="empreendimento-slides">
+                        <div class="empreendimento-slide active">
+                            <img src="empreendimentos_img/rivis.png" alt="Riviera - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/rivis2.png" alt="Riviera - Piscina">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/rivis3.png" alt="Riviera - Ambientes">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/rivis4.png" alt="Riviera - Vista">
+                        </div>
+                    </div>
+                    <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(2, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(2, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="empreendimento-dots" id="dots-2"></div>
+                </div>
+                <div class="empreendimento-descricao">
+                    <div class="empreendimento-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Riviera de São Lourenço, Bertioga - SP
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-swimmer"></i>
+                            Lazer Completo
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-home"></i>
+                            Resort Privativo
+                        </div>
+                    </div>
+                    <button class="contact-btn"
+                        onclick="contactEmpreendimento('Santuário de Luxo na Riviera de São Lourenço')">Saiba
+                        Mais</button>
+                </div>
+            </div>
+
+            <div class="empreendimento-item new" data-category="new">
+                <div class="empreendimento-titulo">
+                    <h3>Sobrado Mosaico Essence</h3>
+                </div>
+                <div class="empreendimento-carousel" id="carousel-4">
+                    <div class="empreendimento-slides">
+                        <div class="empreendimento-slide active">
+                            <img src="empreendimentos_img/essence.png" alt="Essence - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/essense2.png" alt="Essence - Interior">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/essense3.png" alt="Essence - Área de lazer">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/essense4.png" alt="Essence - Área de lazer">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/essense5.png" alt="Essence - Área de lazer">
+                        </div>
+                    </div>
+                    <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(3, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(3, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="empreendimento-dots" id="dots-3"></div>
+                </div>
+                <div class="empreendimento-descricao">
+                    <div class="empreendimento-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Cezar de Souza, Mogi das Cruzes - SP
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-door-closed"></i>
+                            5 suítes
+                        </div>
+                    </div>
+                    <button class="contact-btn" onclick="contactEmpreendimento('Sobrado Mosaico Essence')">Saiba
+                        Mais</button>
+                </div>
+            </div>
             
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Sobre nós</a></li>
-                <li><a href="#empreendimentos">Empreendimentos</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</header>
-
-<section class="hero fade-in" id="home">
-    <div class="hero-carousel" id="heroCarousel">
-        <div class="hero-slide active" style="background-image: url('empreendimentos_img/rivis.png')"></div>
-        <div class="hero-slide" style="background-image: url('empreendimentos_img/rivis2.png')"></div>
-        <div class="hero-slide" style="background-image: url('empreendimentos_img/alegria.png')"></div>
-        <div class="hero-slide" style="background-image: url('empreendimentos_img/13persp_alegria_fitness.png')"></div>
-        <div class="hero-slide" style="background-image: url('empreendimentos_img/essense5.png')"></div>
-    </div>
-    <div class="hero-content">
-        <h1 class="slogan">Confiança que abre portas, transparência que entrega chaves.</h1>
-        <p class="hero-subtitle">Especialista em Imóveis</p>
-        <p class="hero-description">Compra, venda e locação de imóveis residenciais e comerciais, lançamentos e revenda, sempre com foco na tranquilidade e valorização do seu patrimônio.</p>
-        <a href="#contact" class="cta-button">Entre em Contato</a>
-    </div>
-    <div class="carousel-dots" id="carouselDots"></div>
-</section>
-
-<section class="about fade-in" id="about">
-    <div class="container">
-        <div class="section-title">
-            <h2>Bem-vindo à BENALI Imóveis</h2>
-            <p>Especialistas no mercado imobiliário com vasta experiência e compromisso com a qualidade</p>
-        </div>
-        <div class="about-grid">
-            <div class="about-content">
-                <h3>Nossa História</h3>
-                <p>A BENALI Imóveis é composta por uma equipe de profissionais com vasta experiência no mercado imobiliário. Nossa liderança conta com a expertise de um ex-gerente de vendas da Helbor, que traz uma visão estratégica e um compromisso inabalável com a qualidade e inovação para cada cliente.</p>
-                <p>Oferecemos serviços imobiliários transparentes, segurança e uma experiência diferenciada para atender às necessidades de nossos clientes, sejam compradores ou vendedores.</p>
-            </div>
-            <div class="about-image">
-                <img src="img/perfil.png" alt="Equipe Benali Imóveis">
-            </div>
-        </div>
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-number">CRECI</div>
-                <div class="stat-label">47264-J</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Transparência</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="empreendimentos fade-in" id="empreendimentos">
-    <div class="container">
-        <div class="section-title">
-            <h2>Nossos Empreendimentos</h2>
-            <p>Conheça os projetos exclusivos que desenvolvemos em Mogi das Cruzes e região</p>
-        </div>
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="new">Novos</button>
-            <button class="filter-btn" data-filter="used">Usados</button>
-        </div>
-
-        <div class="empreendimento-item new" data-category="new">
-            <div class="empreendimento-titulo">
-                <h3>Residencial SENSE</h3>
-            </div>
-            <div class="empreendimento-carousel" id="carousel-1">
-                <div class="empreendimento-slides">
-                    <div class="empreendimento-slide active">
-                        <img src="empreendimentos_img/fachada_sense.png" alt="Sense - Fachada">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/portaria_sense.png" alt="Sense - Portaria">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/Sensi.png" alt="Sense - Interior">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/piscina_sense.png" alt="Sense - Piscina">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/implantaçao sense.png" alt="Sense - Implantação">
-                    </div>
+            <div class="empreendimento-item new" data-category="new">
+                <div class="empreendimento-titulo">
+                    <h3>Apartamento no Concept Life</h3>
                 </div>
-                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(0, -1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(0, 1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="empreendimento-dots" id="dots-0"></div>
-            </div>
-            <div class="empreendimento-descricao">
-                <div class="empreendimento-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Av. Eng. Miguel Gemma, 2867 - Mogi das Cruzes
+                <div class="empreendimento-carousel" id="carousel-5">
+                    <div class="empreendimento-slides">
+                        <div class="empreendimento-slide active">
+                            <img src="empreendimentos_img/concept1.jpg" alt="Concept Life - Sala">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/concept2.jpg" alt="Concept Life - Cozinha">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/concept3.jpg" alt="Concept Life - Quarto">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/concept4.jpg" alt="Concept Life - Banheiro">
+                        </div>
                     </div>
-                    <div class="info-item">
+                    <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(4, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(4, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="empreendimento-dots" id="dots-4"></div>
+                </div>
+                <div class="empreendimento-descricao">
+                    <p>Apartamento completo, com armários em todos os ambientes, cozinha planejada e ar condicionado. Localizado em um condomínio clube integrado ao Mogi Shopping, com SPA e piscina climatizada.</p>
+                    <div class="empreendimento-info">
+                        <div class="info-item price">
+                           <i class="fas fa-tag"></i>
+                            Locação: R$ 5.500 (tudo incluso)
+                        </div>
+                         <div class="info-item">
+                            <i class="fas fa-bed"></i>
+                            2 dorms (1 suíte)
+                        </div>
+                        <div class="info-item">
+                           <i class="fas fa-bath"></i>
+                            Banheiro Social
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-car"></i>
+                            1 Vaga
+                        </div>
+                         <div class="info-item">
+                            <i class="fas fa-snowflake"></i>
+                            Ar Condicionado
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-couch"></i>
+                           Mobiliado
+                        </div>
+                    </div>
+                    <button class="contact-btn" onclick="contactEmpreendimento('Apartamento no Concept Life')">Saiba Mais</button>
+                </div>
+            </div>
+
+
+            <div class="empreendimento-item used" data-category="used">
+                <div class="empreendimento-titulo">
+                    <h3>Sobrados em Villagio</h3>
+                </div>
+                <div class="empreendimento-carousel" id="carousel-6">
+                    <div class="empreendimento-slides">
+                        <div class="empreendimento-slide active">
+                            <img src="empreendimentos_img/ccasa.png" alt="Villagio - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/ccasa2.png" alt="Villagio - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/ccasa3.png" alt="Villagio - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="empreendimentos_img/ccasa4.png" alt="Villagio - Fachada">
+                        </div>
+                    </div>
+                    <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(5, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(5, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="empreendimento-dots" id="dots-5"></div>
+                </div>
+                <div class="empreendimento-descricao">
+                    <div class="empreendimento-info">
+                        <div class="info-item">
+                            <i class="fas fa-door-closed"></i>
+                            2 e 3 dormitórios
+                        </div>
+                    </div>
+                    <button class="contact-btn" onclick="contactEmpreendimento('Sobrados em Villagio')">Saiba
+                        Mais</button>
+                </div>
+            </div>
+
+            <div class="empreendimento-item used" data-category="used">
+                <div class="empreendimento-titulo">
+                    <h3>Imóvel Usado - Apartamento Central</h3>
+                </div>
+                <div class="empreendimento-carousel" id="carousel-7">
+                    <div class="empreendimento-slides">
+                        <div class="empreendimento-slide active">
+                            <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500"
+                                alt="Apartamento - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500"
+                                alt="Apartamento - Interior">
+                        </div>
+                    </div>
+                    <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(6, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(6, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="empreendimento-dots" id="dots-6"></div>
+                </div>
+                <div class="empreendimento-descricao">
+                    <div class="empreendimento-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Mogi das Cruzes - SP
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-door-closed"></i>
+                            2 dormitórios
+                        </div>
+                    </div>
+                    <button class="contact-btn"
+                        onclick="contactEmpreendimento('Imóvel Usado - Apartamento Central')">Saiba Mais</button>
+                </div>
+            </div>
+
+            <div class="empreendimento-item used" data-category="used">
+                <div class="empreendimento-titulo">
+                    <h3>Imóvel Usado - Casa Jardim</h3>
+                </div>
+                <div class="empreendimento-carousel" id="carousel-8">
+                    <div class="empreendimento-slides">
+                        <div class="empreendimento-slide active">
+                            <img src="https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500"
+                                alt="Casa - Fachada">
+                        </div>
+                        <div class="empreendimento-slide">
+                            <img src="https://images.pexels.com/photos/2376997/pexels-photo-2376997.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500"
+                                alt="Casa - Interior">
+                        </div>
+                    </div>
+                    <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(7, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(7, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="empreendimento-dots" id="dots-7"></div>
+                </div>
+                <div class="empreendimento-descricao">
+                    <div class="empreendimento-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Mogi das Cruzes - SP
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-door-closed"></i>
+                            3 dormitórios
+                        </div>
+                    </div>
+                    <button class="contact-btn" onclick="contactEmpreendimento('Imóvel Usado - Casa Jardim')">Saiba
+                        Mais</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="services fade-in" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Serviços Oferecidos</h2>
+                <p>Compra, venda e locação de imóveis residenciais e comerciais, além da gestão de propriedades com foco
+                    na tranquilidade e valorização do seu patrimônio</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Venda de Imóveis</h3>
+                    <p>Processo completo de venda com avaliação justa, marketing eficiente e acompanhamento jurídico
+                        especializado para garantir a melhor negociação.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Locação</h3>
+                    <p>Administração completa de locações com contratos seguros, vistoria detalhada e suporte contínuo
+                        para proprietários e inquilinos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Consultoria Imobiliária</h3>
+                    <p>Orientação especializada para investimentos imobiliários e análise de mercado personalizada para
+                        maximizar seus resultados.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-building"></i>
-                        1 Torre
                     </div>
-                    <div class="info-item">
-                        <i class="fas fa-home"></i>
-                        141 Unidades
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-crop"></i>
-                        Área: 5.000 m²
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-elevator"></i>
-                        3 Elevadores
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-calendar"></i>
-                        Entrega: 2025
-                    </div>
+                    <h3>Gestão de Propriedades</h3>
+                    <p>Administração completa do seu patrimônio imobiliário com foco na tranquilidade e valorização dos
+                        seus investimentos.</p>
                 </div>
-                <button class="contact-btn" onclick="contactEmpreendimento('Residencial Sense')">Saiba Mais</button>
             </div>
         </div>
+    </section>
 
-        <div class="empreendimento-item new" data-category="new">
-            <div class="empreendimento-titulo">
-                <h3>Helbor Alegria Patteo Mogilar</h3>
+    <section class="contact fade-in" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Estamos prontos para atender você em Mogi das Cruzes e em toda a região</p>
             </div>
-            <div class="empreendimento-carousel" id="carousel-2">
-                <div class="empreendimento-slides">
-                    <div class="empreendimento-slide active">
-                        <img src="empreendimentos_img/alegria.png" alt="Helbor Alegria - Fachada">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-details"><strong>Telefone:</strong> (11) 99415-0913</div>
                     </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/helboralaegria.png" alt="Helbor Alegria - Área comum">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details"><strong>E-mail:</strong> simoesfelipe.corretor@gmail.com</div>
                     </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/helboralegria2.png" alt="Helbor Alegria - Interior">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details"><strong>Endereço:</strong> R. Carmela Dutra, 295 - Jardim
+                            Esplanada, Mogi das Cruzes - SP, 08780-350</div>
                     </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/17persp_alegria_coworking.webp" alt="Helbor Alegria - Fitness">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-id-card"></i></div>
+                        <div class="contact-details"><strong>CRECI:</strong> 47264-J</div>
                     </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/13persp_alegria_fitness.png" alt="Helbor Alegria - Coworking">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map"></i></div>
+                        <div class="contact-details"><strong>Atendemos:</strong> Mogi das Cruzes<br> São Paulo<br>
+                            Litoral Norte</div>
                     </div>
                 </div>
-                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(1, -1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(1, 1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="empreendimento-dots" id="dots-1"></div>
-            </div>
-            <div class="empreendimento-descricao">
-                <div class="empreendimento-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Vila Mogilar - Mogi das Cruzes
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-building"></i>
-                        3 Torres
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-home"></i>
-                        493 Unidades
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-crop"></i>
-                        66 à 119 m²
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-car"></i>
-                        1 à 2 vagas
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-bed"></i>
-                        1 e 3 suítes
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-door-closed"></i>
-                        2 e 3 dormitórios
-                    </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group"><label for="name">Nome Completo</label><input type="text" id="name"
+                                name="name" placeholder="Seu nome completo" required></div>
+                        <div class="form-group"><label for="email">E-mail</label><input type="email" id="email"
+                                name="email" placeholder="seu@email.com" required></div>
+                        <div class="form-group"><label for="phone">Telefone</label><input type="tel" id="phone"
+                                name="phone" placeholder="(11) 99999-9999" required></div>
+                        <div class="form-group"><label for="subject">Assunto</label><input type="text" id="subject"
+                                name="subject" placeholder="Como podemos ajudar?" required></div>
+                        <div class="form-group"><label for="message">Mensagem</label><textarea id="message"
+                                name="message" rows="4" placeholder="Descreva sua necessidade..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
                 </div>
-                <button class="contact-btn" onclick="contactEmpreendimento('Helbor Alegria Patteo Mogilar')">Saiba Mais</button>
+            </div>
+            <div class="map-title">
+                <h3>Onde nos encontrar</h3>
+            </div>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.578132918868!2d-46.18847898444583!3d-23.47565816362304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7b59a536962f%3A0x628035e40632281c!2sR.%20Carmela%20Dutra%2C%20295%20-%20Jardim%20Esplanada%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008780-350!5e0!3m2!1spt-BR!2sbr!4v1664213063553!5m2!1spt-BR!2sbr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
+    </section>
 
-        <div class="empreendimento-item new" data-category="new">
-            <div class="empreendimento-titulo">
-                <h3>Santuário de Luxo na Riviera de São Lourenço</h3>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/logofooter.png" alt="Benali Imóveis Logo">
             </div>
-            <div class="empreendimento-carousel" id="carousel-3">
-                <div class="empreendimento-slides">
-                    <div class="empreendimento-slide active">
-                        <img src="empreendimentos_img/rivis.png" alt="Riviera - Fachada">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/rivis2.png" alt="Riviera - Piscina">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/rivis3.png" alt="Riviera - Ambientes">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/rivis4.png" alt="Riviera - Vista">
-                    </div>
-                </div>
-                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(2, -1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(2, 1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="empreendimento-dots" id="dots-2"></div>
+            <div class="footer-info">
+                <p>Especialistas em imóveis com transparência e qualidade</p>
+                <p>CRECI: 47264-J</p>
             </div>
-            <div class="empreendimento-descricao">
-                <div class="empreendimento-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Riviera de São Lourenço, Bertioga - SP
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-swimmer"></i>
-                        Lazer Completo
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-home"></i>
-                        Resort Privativo
-                    </div>
-                </div>
-                <button class="contact-btn" onclick="contactEmpreendimento('Santuário de Luxo na Riviera de São Lourenço')">Saiba Mais</button>
+            <div class="social-links">
+                <a href="mailto:simoesfelipe.corretor@gmail.com" class="social-link">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/benaliimoveis/" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/5511994150913" class="social-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="footer-text">
+                © 2025 Benali Imóveis. Todos os direitos reservados - Desenvolvido por <span class="developer-link"
+                    onclick="contactDeveloper()">Lucas Cabral</span>
             </div>
         </div>
+    </footer>
 
-        <div class="empreendimento-item new" data-category="new">
-            <div class="empreendimento-titulo">
-                <h3>Sobrado Mosaico Essence</h3>
-            </div>
-            <div class="empreendimento-carousel" id="carousel-4">
-                <div class="empreendimento-slides">
-                    <div class="empreendimento-slide active">
-                        <img src="empreendimentos_img/essence.png" alt="Essence - Fachada">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/essense2.png" alt="Essence - Interior">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/essense3.png" alt="Essence - Área de lazer">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/essense4.png" alt="Essence - Área de lazer">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/essense5.png" alt="Essence - Área de lazer">
-                    </div>
-                </div>
-                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(3, -1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(3, 1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="empreendimento-dots" id="dots-3"></div>
-            </div>
-            <div class="empreendimento-descricao">
-                <div class="empreendimento-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Cezar de Souza, Mogi das Cruzes - SP
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-door-closed"></i>
-                        5 suítes
-                    </div>
-                </div>
-                <button class="contact-btn" onclick="contactEmpreendimento('Sobrado Mosaico Essence')">Saiba Mais</button>
-            </div>
-        </div>
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
-        <div class="empreendimento-item used" data-category="used">
-            <div class="empreendimento-titulo">
-                <h3>Sobrados em Villagio</h3>
-            </div>
-            <div class="empreendimento-carousel" id="carousel-5">
-                <div class="empreendimento-slides">
-                    <div class="empreendimento-slide active">
-                        <img src="empreendimentos_img/ccasa.png" alt="Villagio - Fachada">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/ccasa2.png" alt="Villagio - Fachada">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/ccasa3.png" alt="Villagio - Fachada">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="empreendimentos_img/ccasa4.png" alt="Villagio - Fachada">
-                    </div>
-                </div>
-                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(4, -1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(4, 1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="empreendimento-dots" id="dots-4"></div>
-            </div>
-            <div class="empreendimento-descricao">
-                <div class="empreendimento-info">
-                    <div class="info-item">
-                        <i class="fas fa-door-closed"></i>
-                        2 e 3 dormitórios
-                    </div>
-                </div>
-                <button class="contact-btn" onclick="contactEmpreendimento('Sobrados em Villagio')">Saiba Mais</button>
-            </div>
-        </div>
+    <a href="https://wa.me/5511994150913" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-        <div class="empreendimento-item used" data-category="used">
-            <div class="empreendimento-titulo">
-                <h3>Imóvel Usado - Apartamento Central</h3>
-            </div>
-            <div class="empreendimento-carousel" id="carousel-6">
-                <div class="empreendimento-slides">
-                    <div class="empreendimento-slide active">
-                        <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500" alt="Apartamento - Fachada">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500" alt="Apartamento - Interior">
-                    </div>
-                </div>
-                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(5, -1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(5, 1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="empreendimento-dots" id="dots-5"></div>
-            </div>
-            <div class="empreendimento-descricao">
-                <div class="empreendimento-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Mogi das Cruzes - SP
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-door-closed"></i>
-                        2 dormitórios
-                    </div>
-                </div>
-                <button class="contact-btn" onclick="contactEmpreendimento('Imóvel Usado - Apartamento Central')">Saiba Mais</button>
-            </div>
-        </div>
+    <script>
+        // Empreendimentos carousel tracking
+        const empreendimentoIndexes = [0, 0, 0, 0, 0, 0, 0, 0];
 
-        <div class="empreendimento-item used" data-category="used">
-            <div class="empreendimento-titulo">
-                <h3>Imóvel Usado - Casa Jardim</h3>
-            </div>
-            <div class="empreendimento-carousel" id="carousel-7">
-                <div class="empreendimento-slides">
-                    <div class="empreendimento-slide active">
-                        <img src="https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500" alt="Casa - Fachada">
-                    </div>
-                    <div class="empreendimento-slide">
-                        <img src="https://images.pexels.com/photos/2376997/pexels-photo-2376997.jpeg?auto=compress&cs=tinysrgb&w=1000&h=500" alt="Casa - Interior">
-                    </div>
-                </div>
-                <button class="carousel-nav-btn prev" onclick="changeEmpreendimentoSlide(6, -1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav-btn next" onclick="changeEmpreendimentoSlide(6, 1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <div class="empreendimento-dots" id="dots-6"></div>
-            </div>
-            <div class="empreendimento-descricao">
-                <div class="empreendimento-info">
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Mogi das Cruzes - SP
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-door-closed"></i>
-                        3 dormitórios
-                    </div>
-                </div>
-                <button class="contact-btn" onclick="contactEmpreendimento('Imóvel Usado - Casa Jardim')">Saiba Mais</button>
-            </div>
-        </div>
-    </div>
-</section>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => loadingScreen.style.display = 'none', 1000);
+            }, 1500);
+        });
 
-<section class="services fade-in" id="services">
-    <div class="container">
-        <div class="section-title">
-            <h2>Serviços Oferecidos</h2>
-            <p>Compra, venda e locação de imóveis residenciais e comerciais, além da gestão de propriedades com foco na tranquilidade e valorização do seu patrimônio</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h3>Venda de Imóveis</h3>
-                <p>Processo completo de venda com avaliação justa, marketing eficiente e acompanhamento jurídico especializado para garantir a melhor negociação.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-key"></i>
-                </div>
-                <h3>Locação</h3>
-                <p>Administração completa de locações com contratos seguros, vistoria detalhada e suporte contínuo para proprietários e inquilinos.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-search"></i>
-                </div>
-                <h3>Consultoria Imobiliária</h3>
-                <p>Orientação especializada para investimentos imobiliários e análise de mercado personalizada para maximizar seus resultados.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3>Gestão de Propriedades</h3>
-                <p>Administração completa do seu patrimônio imobiliário com foco na tranquilidade e valorização dos seus investimentos.</p>
-            </div>
-        </div>
-    </div>
-</section>
+        // Hero Carousel
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const carouselDots = document.getElementById('carouselDots');
+        let currentHeroSlide = 0;
 
-<section class="contact fade-in" id="contact">
-    <div class="container">
-        <div class="section-title">
-            <h2>Entre em Contato</h2>
-            <p>Estamos prontos para atender você em Mogi das Cruzes e em toda a região</p>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Informações de Contato</h3>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                    <div class="contact-details"><strong>Telefone:</strong> (11) 99415-0913</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="contact-details"><strong>E-mail:</strong> simoesfelipe.corretor@gmail.com</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="contact-details"><strong>Endereço:</strong> R. Carmela Dutra, 295 - Jardim Esplanada, Mogi das Cruzes - SP, 08780-350</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-id-card"></i></div>
-                    <div class="contact-details"><strong>CRECI:</strong> 47264-J</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-map"></i></div>
-                    <div class="contact-details"><strong>Atendemos:</strong> Mogi das Cruzes<br> São Paulo<br> Litoral Norte</div>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group"><label for="name">Nome Completo</label><input type="text" id="name" name="name" placeholder="Seu nome completo" required></div>
-                    <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="seu@email.com" required></div>
-                    <div class="form-group"><label for="phone">Telefone</label><input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required></div>
-                    <div class="form-group"><label for="subject">Assunto</label><input type="text" id="subject" name="subject" placeholder="Como podemos ajudar?" required></div>
-                    <div class="form-group"><label for="message">Mensagem</label><textarea id="message" name="message" rows="4" placeholder="Descreva sua necessidade..." required></textarea></div>
-                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                </form>
-            </div>
-        </div>
-        <div class="map-title">
-            <h3>Onde nos encontrar</h3>
-        </div>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.6473857948303!2d-46.1856762844781!3d-23.50931216599643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7b5f6a9f4e2f%3A0x7d29481a29f8f4a!2sR.%20Carmela%20Dutra%2C%20295%20-%20Jardim%20Esplanada%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008780-350!5e0!3m2!1spt-BR!2sbr!4v1678886432123!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
-</section>
+        // Create dots for hero carousel
+        heroSlides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => changeSlide(index));
+            carouselDots.appendChild(dot);
+        });
 
+        const dots = document.querySelectorAll('.carousel-dot');
 
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-logo">
-            <img src="img/logofooter.png" alt="Benali Imóveis Logo">
-        </div>
-        <div class="footer-info">
-            <p>Especialistas em imóveis com transparência e qualidade</p>
-            <p>CRECI: 47264-J</p>
-        </div>
-        <div class="social-links">
-            <a href="mailto:simoesfelipe.corretor@gmail.com" class="social-link">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-            <a href="https://www.instagram.com/benaliimoveis/" class="social-link" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://wa.me/5511994150913" class="social-link" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </div>
-        <div class="footer-text">
-            © 2025 Benali Imóveis. Todos os direitos reservados - Desenvolvido por <span class="developer-link" onclick="contactDeveloper()">Lucas Cabral</span>
-        </div>
-    </div>
-</footer>
-
-<a href="#home" class="back-to-top" id="backToTop">
-    <i class="fas fa-arrow-up"></i>
-</a>
-
-<a href="https://wa.me/5511994150913" class="whatsapp-btn" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<script>
-    // Empreendimentos carousel tracking
-    const empreendimentoIndexes = [0, 0, 0, 0, 0, 0, 0];
-
-    // Loading Screen
-    window.addEventListener('load', () => {
-        const loadingScreen = document.getElementById('loadingScreen');
-        setTimeout(() => {
-            loadingScreen.classList.add('fade-out');
-            setTimeout(() => loadingScreen.style.display = 'none', 1000);
-        }, 1500);
-    });
-
-    // Hero Carousel
-    const heroSlides = document.querySelectorAll('.hero-slide');
-    const carouselDots = document.getElementById('carouselDots');
-    let currentHeroSlide = 0;
-
-    // Create dots for hero carousel
-    heroSlides.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('carousel-dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => changeSlide(index));
-        carouselDots.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.carousel-dot');
-
-    function changeSlide(index) {
-        heroSlides[currentHeroSlide].classList.remove('active');
-        dots[currentHeroSlide].classList.remove('active');
-        currentHeroSlide = index;
-        heroSlides[currentHeroSlide].classList.add('active');
-        dots[currentHeroSlide].classList.add('active');
-    }
-
-    function nextHeroSlide() {
-        let next = (currentHeroSlide + 1) % heroSlides.length;
-        changeSlide(next);
-    }
-
-    setInterval(nextHeroSlide, 5000);
-
-    // Initialize empreendimento dots
-    function initializeEmpreendimentoDots() {
-        for (let i = 0; i < 7; i++) {
-            const dotsContainer = document.getElementById(`dots-${i}`);
-            const slides = document.querySelectorAll(`#carousel-${i + 1} .empreendimento-slide`);
-
-            if (dotsContainer && slides.length > 0) {
-                dotsContainer.innerHTML = '';
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('div');
-                    dot.classList.add('empreendimento-dot');
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => changeEmpreendimentoSlide(i, null, index));
-                    dotsContainer.appendChild(dot);
-                });
-            }
-        }
-    }
-
-    // Empreendimentos Carousel
-    function changeEmpreendimentoSlide(carouselIndex, direction = null, targetIndex = null) {
-        const carousel = document.getElementById(`carousel-${carouselIndex + 1}`);
-        if (!carousel) return;
-
-        const slides = carousel.querySelectorAll('.empreendimento-slide');
-        const dots = document.querySelectorAll(`#dots-${carouselIndex} .empreendimento-dot`);
-
-        if (slides.length === 0) return;
-
-        // Remove active class from current slide and dot
-        slides[empreendimentoIndexes[carouselIndex]].classList.remove('active');
-        if (dots.length > 0) {
-            dots[empreendimentoIndexes[carouselIndex]].classList.remove('active');
+        function changeSlide(index) {
+            heroSlides[currentHeroSlide].classList.remove('active');
+            dots[currentHeroSlide].classList.remove('active');
+            currentHeroSlide = index;
+            heroSlides[currentHeroSlide].classList.add('active');
+            dots[currentHeroSlide].classList.add('active');
         }
 
-        // Update index
-        if (targetIndex !== null) {
-            empreendimentoIndexes[carouselIndex] = targetIndex;
-        } else if (direction !== null) {
-            empreendimentoIndexes[carouselIndex] += direction;
-            if (empreendimentoIndexes[carouselIndex] < 0) {
-                empreendimentoIndexes[carouselIndex] = slides.length - 1;
-            } else if (empreendimentoIndexes[carouselIndex] >= slides.length) {
-                empreendimentoIndexes[carouselIndex] = 0;
+        function nextHeroSlide() {
+            let next = (currentHeroSlide + 1) % heroSlides.length;
+            changeSlide(next);
+        }
+
+        setInterval(nextHeroSlide, 5000);
+
+        // Initialize empreendimento dots
+        function initializeEmpreendimentoDots() {
+            for (let i = 0; i < 8; i++) {
+                const dotsContainer = document.getElementById(`dots-${i}`);
+                const slides = document.querySelectorAll(`#carousel-${i + 1} .empreendimento-slide`);
+
+                if (dotsContainer && slides.length > 0) {
+                    dotsContainer.innerHTML = '';
+                    slides.forEach((_, index) => {
+                        const dot = document.createElement('div');
+                        dot.classList.add('empreendimento-dot');
+                        if (index === 0) dot.classList.add('active');
+                        dot.addEventListener('click', () => changeEmpreendimentoSlide(i, null, index));
+                        dotsContainer.appendChild(dot);
+                    });
+                }
             }
         }
 
-        // Add active class to new slide and dot
-        slides[empreendimentoIndexes[carouselIndex]].classList.add('active');
-        if (dots.length > 0) {
-            dots[empreendimentoIndexes[carouselIndex]].classList.add('active');
+        // Empreendimentos Carousel
+        function changeEmpreendimentoSlide(carouselIndex, direction = null, targetIndex = null) {
+            const carousel = document.getElementById(`carousel-${carouselIndex + 1}`);
+            if (!carousel) return;
+
+            const slides = carousel.querySelectorAll('.empreendimento-slide');
+            const dots = document.querySelectorAll(`#dots-${carouselIndex} .empreendimento-dot`);
+
+            if (slides.length === 0) return;
+
+            // Remove active class from current slide and dot
+            slides[empreendimentoIndexes[carouselIndex]].classList.remove('active');
+            if (dots.length > 0 && dots[empreendimentoIndexes[carouselIndex]]) {
+                dots[empreendimentoIndexes[carouselIndex]].classList.remove('active');
+            }
+
+            // Update index
+            if (targetIndex !== null) {
+                empreendimentoIndexes[carouselIndex] = targetIndex;
+            } else if (direction !== null) {
+                empreendimentoIndexes[carouselIndex] += direction;
+                if (empreendimentoIndexes[carouselIndex] < 0) {
+                    empreendimentoIndexes[carouselIndex] = slides.length - 1;
+                } else if (empreendimentoIndexes[carouselIndex] >= slides.length) {
+                    empreendimentoIndexes[carouselIndex] = 0;
+                }
+            }
+
+            // Add active class to new slide and dot
+            slides[empreendimentoIndexes[carouselIndex]].classList.add('active');
+            if (dots.length > 0 && dots[empreendimentoIndexes[carouselIndex]]) {
+                dots[empreendimentoIndexes[carouselIndex]].classList.add('active');
+            }
         }
-    }
 
-    // Auto-advance empreendimento carousels
-    setInterval(() => {
-        for (let i = 0; i < empreendimentoIndexes.length; i++) {
-            changeEmpreendimentoSlide(i, 1);
+        // Auto-advance empreendimento carousels
+        setInterval(() => {
+            for (let i = 0; i < empreendimentoIndexes.length; i++) {
+                changeEmpreendimentoSlide(i, 1);
+            }
+        }, 6000);
+
+        // Contact Empreendimento Function
+        function contactEmpreendimento(nome) {
+            const message = `Olá! Tenho interesse no empreendimento "${nome}". Gostaria de mais informações sobre preços, plantas e disponibilidade.`;
+            const whatsappUrl = `https://wa.me/5511994150913?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
-    }, 6000);
 
-    // Contact Empreendimento Function
-    function contactEmpreendimento(nome) {
-        const message = `Olá! Tenho interesse no empreendimento "${nome}". Gostaria de mais informações sobre preços, plantas e disponibilidade.`;
-        const whatsappUrl = `https://wa.me/5511994150913?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-    }
-
-    // Contact Developer Function
-    function contactDeveloper() {
-        const message = `Olá! Gostaria de mais serviços de desenvolvimento web.`;
-        const whatsappUrl = `https://wa.me/5511960573657?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-    }
-
-    // Mobile Menu
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navMenu = document.getElementById('navMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        const icon = mobileMenuBtn.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-        
-        // Prevent body scroll when menu is open
-        if (navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
+        // Contact Developer Function
+        function contactDeveloper() {
+            const message = `Olá! Gostaria de mais serviços de desenvolvimento web.`;
+            const whatsappUrl = `https://wa.me/5511960573657?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
-    });
 
-    // Close mobile menu when clicking on links
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
             const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-            document.body.style.overflow = 'auto';
-        });
-    });
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
 
-    // Header Scroll
-    const header = document.getElementById('header');
-    const backToTop = document.getElementById('backToTop');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-            backToTop.classList.add('show');
-        } else {
-            header.classList.remove('scrolled');
-            backToTop.classList.remove('show');
-        }
-    });
-
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) {
-                const headerHeight = document.getElementById('header').offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
             }
         });
-    });
 
-    // Form Submission to WhatsApp
-    document.getElementById('contactForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData);
-        const message = `Olá! Gostaria de entrar em contato:\n\nNome: ${data.name}\nEmail: ${data.email}\nTelefone: ${data.phone}\nAssunto: ${data.subject}\nMensagem: ${data.message}`;
-        const whatsappUrl = `https://wa.me/5511994150913?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-        e.target.reset();
-    });
-
-    // Fade-in Observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Filter buttons functionality
-    document.querySelectorAll('.filter-btn').forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
             });
+        });
 
-            // Add active class to clicked button
-            button.classList.add('active');
+        // Header Scroll
+        const header = document.getElementById('header');
+        const backToTop = document.getElementById('backToTop');
 
-            // Get filter value
-            const filter = button.getAttribute('data-filter');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                backToTop.classList.add('show');
+            } else {
+                header.classList.remove('scrolled');
+                backToTop.classList.remove('show');
+            }
+        });
 
-            // Filter empreendimentos
-            document.querySelectorAll('.empreendimento-item').forEach(item => {
-                if (filter === 'all') {
-                    item.classList.remove('hidden');
-                } else {
-                    if (item.getAttribute('data-category') === filter) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                    }
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
-    });
 
-    // Touch events for mobile carousel swiping
-    function addTouchEvents() {
-        document.querySelectorAll('.empreendimento-carousel').forEach(carousel => {
-            let startX = 0;
-            let endX = 0;
-
-            carousel.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-            }, { passive: true });
-
-            carousel.addEventListener('touchend', (e) => {
-                endX = e.changedTouches[0].clientX;
-                handleSwipe(carousel, startX, endX);
-            }, { passive: true });
+        // Form Submission to WhatsApp
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            const message = `Olá! Gostaria de entrar em contato:\n\n*Nome:* ${data.name}\n*Email:* ${data.email}\n*Telefone:* ${data.phone}\n*Assunto:* ${data.subject}\n\n*Mensagem:*\n${data.message}`;
+            const whatsappUrl = `https://wa.me/5511994150913?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            e.target.reset();
         });
-    }
 
-    // Handle swipe for mobile carousels
-    function handleSwipe(carousel, startX, endX) {
-        const diffX = startX - endX;
+        // Fade-in Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        // Minimum swipe distance
-        if (Math.abs(diffX) > 50) {
-            // Get carousel index from id
-            const carouselId = carousel.id;
-            const index = parseInt(carouselId.split('-')[1]) - 1;
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-            if (diffX > 0) {
-                // Swipe left - next slide
-                changeEmpreendimentoSlide(index, 1);
-            } else {
-                // Swipe right - previous slide
-                changeEmpreendimentoSlide(index, -1);
+        // Filter buttons functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                // Get filter value
+                const filter = button.getAttribute('data-filter');
+
+                // Filter empreendimentos
+                document.querySelectorAll('.empreendimento-item').forEach(item => {
+                    if (filter === 'all') {
+                        item.classList.remove('hidden');
+                    } else {
+                        if (item.getAttribute('data-category') === filter) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+
+        // Touch events for mobile carousel swiping
+        function addTouchEvents() {
+            document.querySelectorAll('.empreendimento-carousel').forEach(carousel => {
+                let startX = 0;
+                let endX = 0;
+
+                carousel.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+
+                carousel.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    handleSwipe(carousel, startX, endX);
+                }, { passive: true });
+            });
+        }
+
+        // Handle swipe for mobile carousels
+        function handleSwipe(carousel, startX, endX) {
+            const diffX = startX - endX;
+
+            // Minimum swipe distance
+            if (Math.abs(diffX) > 50) {
+                // Get carousel index from id
+                const carouselId = carousel.id;
+                const index = parseInt(carouselId.split('-')[1]) - 1;
+
+                if (diffX > 0) {
+                    // Swipe left - next slide
+                    changeEmpreendimentoSlide(index, 1);
+                } else {
+                    // Swipe right - previous slide
+                    changeEmpreendimentoSlide(index, -1);
+                }
             }
         }
-    }
 
-    // Initialize everything when page loads
-    document.addEventListener('DOMContentLoaded', () => {
-        initializeEmpreendimentoDots();
-        addTouchEvents();
-        
-        // Ensure empreendimentos section is visible
-        const empreendimentosSection = document.getElementById('empreendimentos');
-        if (empreendimentosSection) {
-            empreendimentosSection.style.display = 'block';
-            empreendimentosSection.style.visibility = 'visible';
-            empreendimentosSection.style.opacity = '1';
-        }
-    });
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeEmpreendimentoDots();
+            addTouchEvents();
 
-    // Force show empreendimentos on window resize
-    window.addEventListener('resize', () => {
-        const empreendimentosSection = document.getElementById('empreendimentos');
-        if (empreendimentosSection) {
-            empreendimentosSection.style.display = 'block';
-            empreendimentosSection.style.visibility = 'visible';
-            empreendimentosSection.style.opacity = '1';
-        }
-    });
-</script>
+            // Ensure empreendimentos section is visible
+            const empreendimentosSection = document.getElementById('empreendimentos');
+            if (empreendimentosSection) {
+                empreendimentosSection.style.display = 'block';
+                empreendimentosSection.style.visibility = 'visible';
+                empreendimentosSection.style.opacity = '1';
+            }
+        });
+
+        // Force show empreendimentos on window resize
+        window.addEventListener('resize', () => {
+            const empreendimentosSection = document.getElementById('empreendimentos');
+            if (empreendimentosSection) {
+                empreendimentosSection.style.display = 'block';
+                empreendimentosSection.style.visibility = 'visible';
+                empreendimentosSection.style.opacity = '1';
+            }
+        });
+    </script>
 </body>
+
 </html>
